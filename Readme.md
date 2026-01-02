@@ -97,16 +97,17 @@ Matplotlib – Visualization
 weather-forecasting-delhi/
 │
 ├── sql/
-│   └── athena_queries.sql   👈 ⭐ MOST IMPORTANT
+│   └── athena_queries.sql        # All Athena SQL (data engineering)
 │
 ├── notebooks/
-│   ├── eda_baseline.ipynb
-│   └── prophet_forecasting.ipynb
+│   └── delhi_weather_forecasting.ipynb
+│       # EDA + Baselines + Prophet ML (single notebook)
 │
 ├── data/
-│   └── prophet_train_delhi.csv
+│   └── prophet_train_delhi.csv   # Exported train data from Athena
 │
 └── README.md
+
 
 🧪 Key Learnings
 
