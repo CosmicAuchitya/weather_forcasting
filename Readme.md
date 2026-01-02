@@ -94,17 +94,8 @@ Facebook Prophet – Time series forecasting
 Matplotlib – Visualization
 
 📁 Project Structure
-├── data/
-│ ├── prophet_train_delhi.csv
-│
-├── notebooks/
-│ ├── eda_and_baseline.ipynb
-│ ├── prophet_forecasting.ipynb
-│
-├── sql/
-│ ├── athena_queries.sql
-│
-├── README.md
+delhi_for.ipynb
+README.MD
 
 🧪 Key Learnings
 
