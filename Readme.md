@@ -100,7 +100,7 @@ weather-forecasting-delhi/
 │   └── athena_queries.sql        # All Athena SQL (data engineering)
 │
 ├── notebooks/
-│   └── delhi_weather_forecasting.ipynb
+│   └── delhi_wea_forecasting.ipynb
 │       # EDA + Baselines + Prophet ML (single notebook)
 │
 ├── data/
