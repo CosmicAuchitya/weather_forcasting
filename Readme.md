@@ -94,8 +94,9 @@ Facebook Prophet – Time series forecasting
 Matplotlib – Visualization
 
 📁 Project Structure
-delhi_for.ipynb
-README.MD
+/
+delhi_for.ipynb/
+/README.MD
 
 🧪 Key Learnings
 
