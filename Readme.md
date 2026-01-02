@@ -7,7 +7,7 @@ The project demonstrates:
 
 Real-world data engineering on AWS
 
-Strong baseline vs ML comparison
+Strong baseline vs machine learning comparison
 
 Production-style forecast evaluation
 
@@ -21,7 +21,7 @@ Urban planning
 
 Energy demand estimation
 
-The challenge is to model long-term seasonality and handle missing historical periods in real-world climate data.
+The key challenge is to model long-term seasonality while handling missing and irregular historical climate data.
 
 📊 Dataset
 
@@ -31,7 +31,7 @@ Granularity: Daily → Aggregated to Monthly
 
 Time Range: 1942 – 2025
 
-Location: Delhi (representative station: IN022021900)
+Location: Delhi (Representative station: IN022021900)
 
 🏗️ Architecture & Workflow
 1️⃣ Data Engineering (AWS)
@@ -40,19 +40,19 @@ Stored raw NOAA data in Amazon S3
 
 Queried and transformed data using Amazon Athena (SQL)
 
-Aggregated daily temperatures into monthly averages
+Aggregated daily temperature records into monthly averages
 
-Created clean train/test splits (last 24 months as test)
+Created a leakage-safe train/test split (last 24 months as test)
 
 2️⃣ Baseline Forecasting
 
-Implemented two classical baselines:
+Implemented classical baseline models:
 
 Naive baseline (last observed value)
 
 Moving average forecast
 
-These baselines establish a minimum performance benchmark.
+These baselines establish a minimum performance benchmark before ML.
 
 3️⃣ Machine Learning Forecasting
 
@@ -62,14 +62,14 @@ Strong yearly seasonality
 
 Long-term temperature trends
 
-Irregular gaps in historical data
+Irregular gaps in historical observations
 
 📈 Model Evaluation
 Model MAE RMSE
 Naive Baseline 6.57 9.06
 Prophet 1.11 1.42
 
-✅ Prophet reduced error by ~80%, clearly outperforming the baseline.
+✅ Prophet reduced forecasting error by ~80%, clearly outperforming the baseline models.
 
 📉 Visualizations
 
@@ -77,7 +77,7 @@ Monthly temperature trends (1942–2025)
 
 Prophet forecast with confidence intervals
 
-Actual vs predicted comparison on test data
+Actual vs predicted temperature comparison on test data
 
 🛠️ Tech Stack
 
@@ -85,7 +85,7 @@ AWS S3 – Data storage
 
 Amazon Athena – SQL analytics
 
-Python – Data processing
+Python – Data processing & modeling
 
 Pandas, NumPy – Analysis
 
@@ -97,28 +97,26 @@ Matplotlib – Visualization
 weather-forecasting-delhi/
 │
 ├── sql/
-│   └── athena_queries.sql        # All Athena SQL (data engineering)
+│ └── athena_queries.sql # All Athena SQL (data engineering)
 │
 ├── notebooks/
-│   └── delhi_wea_forecasting.ipynb
-│       # EDA + Baselines + Prophet ML (single notebook)
+│ └── delhi_weather_forecasting.ipynb
+│ # EDA + Baselines + Prophet ML (single notebook)
 │
 ├── data/
-│   └── prophet_train_delhi.csv   # Exported train data from Athena
+│ └── prophet_train_delhi.csv # Exported train data from Athena
 │
 └── README.md
 
-
 🧪 Key Learnings
 
-Real climate data is messy and incomplete
+Real-world climate data is messy and incomplete
 
-Baselines are critical before applying ML
+Establishing baselines is critical before applying ML
 
-Prophet excels when seasonality is strong
+Prophet performs exceptionally well when seasonality is strong
 
-Cloud SQL + local ML is a powerful workflow
-
+Combining cloud SQL + local ML enables scalable workflows
 
 👤 Author
 
