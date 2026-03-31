@@ -1,124 +1,74 @@
-🌦️ Delhi Monthly Temperature Forecasting (1942–2025)
-📌 Project Overview
+# Delhi Monthly Temperature Forecasting
 
-This project builds an end-to-end time series forecasting pipeline to predict monthly average temperatures for Delhi, India, using historical climate data from NOAA.
+A time-series forecasting project for predicting monthly average temperatures in Delhi using historical NOAA climate data, AWS-based data preparation, and Prophet modeling.
 
-The project demonstrates:
+## Project Overview
 
-Real-world data engineering on AWS
+This project builds an end-to-end forecasting workflow that starts with historical weather data and ends with model evaluation against a simple baseline.
 
-Strong baseline vs machine learning comparison
+The pipeline includes:
 
-Production-style forecast evaluation
+- data preparation using AWS services
+- monthly aggregation of historical temperature records
+- baseline forecasting for comparison
+- Prophet-based forecasting for improved predictive performance
 
-🧠 Problem Statement
+## Problem Statement
 
-Accurately forecasting temperature is crucial for:
+Accurate temperature forecasting is useful for climate analysis, planning, and demand estimation. The main challenge in this project is handling long-term seasonality while working with historical data that can be incomplete or irregular.
 
-Climate analysis
+## Dataset
 
-Urban planning
+- Source: NOAA Global Historical Climatology Network
+- Location: Delhi, India
+- Time range: 1942 to 2025
+- Granularity: daily records aggregated into monthly averages
 
-Energy demand estimation
+## Tech Stack
 
-The key challenge is to model long-term seasonality while handling missing and irregular historical climate data.
+- AWS S3
+- Amazon Athena
+- Python
+- pandas
+- NumPy
+- Prophet
+- Matplotlib
 
-📊 Dataset
+## Workflow
 
-Source: NOAA Global Historical Climatology Network (GHCN)
+1. Store raw climate data in Amazon S3
+2. Query and transform data with Amazon Athena
+3. Aggregate daily records into monthly averages
+4. Create a leakage-safe train and test split
+5. Compare baseline forecasts with Prophet
+6. Evaluate model performance using MAE and RMSE
 
-Granularity: Daily → Aggregated to Monthly
+## Results
 
-Time Range: 1942 – 2025
+The Prophet model significantly outperformed the baseline forecast and showed strong performance for a seasonal time-series problem.
 
-Location: Delhi (Representative station: IN022021900)
+Example reported results:
 
-🏗️ Architecture & Workflow
-1️⃣ Data Engineering (AWS)
+- Naive baseline RMSE: 9.06
+- Prophet RMSE: 1.42
 
-Stored raw NOAA data in Amazon S3
+## Repository Structure
 
-Queried and transformed data using Amazon Athena (SQL)
+```text
+Readme.md
+weather forcasting/
+  DATA/
+    prophet_train_delhi.csv
+  notebook/
+    delhi_wea_forcasting.ipynb
+  SQL/
+    athena_queries.sql
+```
 
-Aggregated daily temperature records into monthly averages
+## What This Project Demonstrates
 
-Created a leakage-safe train/test split (last 24 months as test)
-
-2️⃣ Baseline Forecasting
-
-Implemented classical baseline models:
-
-Naive baseline (last observed value)
-
-Moving average forecast
-
-These baselines establish a minimum performance benchmark before ML.
-
-3️⃣ Machine Learning Forecasting
-
-Used Facebook Prophet to model:
-
-Strong yearly seasonality
-
-Long-term temperature trends
-
-Irregular gaps in historical observations
-
-📈 Model Evaluation
-Model MAE RMSE
-Naive Baseline 6.57 9.06
-Prophet 1.11 1.42
-
-✅ Prophet reduced forecasting error by ~80%, clearly outperforming the baseline models.
-
-📉 Visualizations
-
-Monthly temperature trends (1942–2025)
-
-Prophet forecast with confidence intervals
-
-Actual vs predicted temperature comparison on test data
-
-🛠️ Tech Stack
-
-AWS S3 – Data storage
-
-Amazon Athena – SQL analytics
-
-Python – Data processing & modeling
-
-Pandas, NumPy – Analysis
-
-Facebook Prophet – Time series forecasting
-
-Matplotlib – Visualization
-
-📁 Project Structure
-weather-forecasting-delhi/
-│
-├── sql/
-│ └── athena_queries.sql # All Athena SQL (data engineering)
-│
-├── notebooks/
-│ └── delhi_weather_forecasting.ipynb
-│ # EDA + Baselines + Prophet ML (single notebook)
-│
-├── data/
-│ └── prophet_train_delhi.csv # Exported train data from Athena
-│
-└── README.md
-
-🧪 Key Learnings
-
-Real-world climate data is messy and incomplete
-
-Establishing baselines is critical before applying ML
-
-Prophet performs exceptionally well when seasonality is strong
-
-Combining cloud SQL + local ML enables scalable workflows
-
-👤 Author
-
-Auchitya Singh
-Aspiring Data Scientist | Data Analytics | Time Series Forecasting
+- time-series forecasting with business context
+- baseline-versus-model evaluation
+- cloud-based data preparation using AWS
+- practical use of Prophet for long-term seasonal trends
+- end-to-end analytical workflow from data engineering to prediction
